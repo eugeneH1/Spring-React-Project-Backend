@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class TodoHardcodedService {
     private static List<Todo> todos = new ArrayList<>();
-    private static int idCounter = 0;
+    private static long idCounter = 0;
     static {
         todos.add(new Todo(++idCounter, "name", "Learn NeoVim", new Date(), false));
         todos.add(new Todo(++idCounter, "name", "Learn eMacs", new Date(), false));
@@ -24,7 +24,7 @@ public class TodoHardcodedService {
 
     public Todo save(Todo todo) {
         if(todo.getId() == -1 || todo.getId()==0) {
-            todo.setId(++idCounter);
+            todo.setId (++idCounter);
         } else {
             deleteById(todo.getId());
         }
